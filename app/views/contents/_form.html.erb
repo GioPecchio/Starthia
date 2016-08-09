@@ -9,9 +9,7 @@
         <%= f.input :equity, required: true, label: 'Equity percentage', class: "field" %>
         <%= f.input :website, label: 'Website Link', as: :string, class: "field" %>
         <%= f.input :linkedin, label: 'Linkedin Link', as: :string, class: "field" %>
-        <%= f.input :contact, label: 'Conatct email', as: :string, class: "field" %>
-        <%= f.email_field :contact %>
-        <%= f.input :category_id, collection: Category.all.collect {|c| [c.name, c.id] }, prompt: true %>
+        
         <br>
         <label>Upload a cover image of your project (.jpeg, .jpg)</label>
         <div class="image-field">

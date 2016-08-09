@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
 
 
   def index
-    @contents = Content.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
+    @contents = Content.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 16)
   end
 
   def show
@@ -52,12 +52,12 @@ class ContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
-      @content = Content.find(params[:id])
+      @content = Content.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:title, :tagline, :description, :price, :team, :equity, :website, :linkedin, :copertina, :category_id, :category)
+      params.require(:content).permit(:title, :tagline, :description, :price, :team, :equity, :website, :linkedin, :copertina)
     end
 
     def check_user
