@@ -1,23 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<p class="center-align title">
+		  <%= @content.title %>
+	</p>
 
-<%= image_tag @content.copertina.url %>
+	<p class="center-align">
+		  by user
+	</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @content.title %>
-</p>
+	<br>
 
-<p>
-  <strong>Description:</strong>
-  <%= @content.description %>
-</p>
+	<div class="sidebar col s12 m4 l3">
+        <div class="panel">
+          	<p class="info center-align">
+				Info:
+			</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @content.price %>
-</p>
+			<p class="left-align">
+			  Equity: <%= @content.equity %>%
+			</p>
 
-<% if @content.user == current_user %>
-	<%= link_to 'Edit', edit_content_path(@content) %> |
-<% end %>
-<%= link_to 'Back', contents_path %>
+			<div class="divider"></div>
+
+			<p class="left-align">
+			  Team members: <%= @content.team %>
+			</p>
+
+			<div class="divider"></div>
+
+			<p class="left-align">
+			  Website: <br><%= @content.website %>
+			</p>
+
+			<div class="divider"></div>
+
+			<p class="left-align">
+			  Linkedin: <br><%= @content.linkedin %>
+			</p>
+
+			<div class="divider"></div>
+        </div>
+	</div>
+
+	<div class="col s12 m8 l9">
+			<div class="center-align">
+				<%= image_tag @content.copertina.url(:large)%>
+			</div>
+
+			<p class="center-align">
+			  <strong>Description:</strong>
+			  <%= @content.description %>
+			</p>
+
+			<p class="center-align">
+			  <strong>Price:</strong>
+			  <%= number_to_currency(@content.price) %>
+			</p>
+			
+			<div class="center">
+		        <div class="textholder white-text">
+		          	<p class="center-align">
+			  			<strong>Contact email: <%= @content.contact %></strong>
+					</p>
+		        </div>
+		    </div>
+
+			<br>
+
+			<% if @content.user == current_user %>
+				<%= link_to 'Edit your content', edit_content_path(@content) %> |
+			<% end %>
+			<%= link_to 'Back to contents', contents_path %>
+	</div>
+</div>

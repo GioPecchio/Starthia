@@ -27,7 +27,17 @@ gem 'materialize-sass'
 
 gem 'devise'
 
+gem "devise-async"
+
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
+gem 'simple_form'
+
+gem 'country_select'
+
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'will_paginate-materialize'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

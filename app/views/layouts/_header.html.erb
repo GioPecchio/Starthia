@@ -4,18 +4,20 @@
 	      <%= link_to '$ T A R T H I A', root_path, class: "brand-logo blue-text text-accent-3" %>
 	      <a href="#" data-activates="mobile-demo" class="button-collapse blue-text text-accent-3"><i class="material-icons">menu</i></a>
 	      <ul class="right hide-on-med-and-down">
+	      	<li><%= link_to 'Add a project', new_content_path, class: "blue-text text-accent-3" %></li>
 	      	<% if user_signed_in? %>
 	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "blue-text text-accent-3"%>
 	      		</li>
 	      	<% else %>
 		      	<li><%= link_to "Log In", new_user_session_path, class: "blue-text text-accent-3" %>
 		      	</li>
-		      	<li><%= link_to "Sign Up", new_user_registration_path, class: "blue-text text-accent-3" %>
+		      	<li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-devise waves-effect waves-light blue accent-3" %>
 		      	</li>
 		    <% end %>  	
 	      </ul>
 	      <ul class="side-nav" id="mobile-demo">
-	        <% if user_signed_in? %>
+	      	<li><%= link_to 'Add a project', new_content_path, class: "blue-text text-accent-3" %></li>
+	        <% if user_signed_in? %>	
 	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "blue-text text-accent-3" %>
 	      		</li>
 	      	<% else %>

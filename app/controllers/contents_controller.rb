@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
 
 
   def index
-    @contents = Content.all
+    @contents = Content.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 2)
   end
 
   def show
@@ -57,7 +57,7 @@ class ContentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
-      params.require(:content).permit(:title, :description, :price, :copertina)
+      params.require(:content).permit(:title, :tagline, :description, :price, :team, :equity, :website, :linkedin, :copertina, :category_id, :category)
     end
 
     def check_user

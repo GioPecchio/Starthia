@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731153434) do
+ActiveRecord::Schema.define(version: 20160805125557) do
+
+  create_table "buyers", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "buyers", ["email"], name: "index_buyers_on_email", unique: true
+  add_index "buyers", ["reset_password_token"], name: "index_buyers_on_reset_password_token", unique: true
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contents", force: :cascade do |t|
     t.string   "title"
@@ -28,7 +52,52 @@ ActiveRecord::Schema.define(version: 20160731153434) do
     t.string   "copertina_content_type"
     t.integer  "copertina_file_size"
     t.datetime "copertina_updated_at"
+    t.string   "tagline"
+    t.string   "country_field"
+    t.integer  "team"
+    t.integer  "equity"
+    t.text     "website"
+    t.text     "linkedin"
+    t.string   "country"
+    t.integer  "category_id"
+    t.string   "contact"
   end
+
+  create_table "investors", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "investors", ["email"], name: "index_investors_on_email", unique: true
+  add_index "investors", ["reset_password_token"], name: "index_investors_on_reset_password_token", unique: true
+
+  create_table "models", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "models", ["email"], name: "index_models_on_email", unique: true
+  add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
