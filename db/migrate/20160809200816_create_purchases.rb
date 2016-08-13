@@ -2,7 +2,7 @@ class CreatePurchases < ActiveRecord::Migration
   def change
     create_table :purchases do |t|
       t.string :email_client
-      t.saller :email
+      t.string :email
       t.string :guid
       t.integer :content_id
 
