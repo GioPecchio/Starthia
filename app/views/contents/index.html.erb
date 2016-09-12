@@ -1,8 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<!-- <h1>Listing Contents</h1> -->
-
- <div class="row">
+<div class="row">
   <% @contents.each do |content| %>
     <div class="col s3">
       <div class="card">
@@ -16,7 +12,7 @@
         <div class="card-content">
           <span>By <%= content.user.name %></span>
           <br>
-          <span class:"left"><%= number_to_currency(content.price) %></span>
+          <span class:"left"><%= number_to_currency(content.price, :unit => "£") %></span>
         </div>
         <div class="card-action">
           <div class="center-align"><%= link_to 'Show More', content, class: "btn btn-devise waves-effect waves-light blue accent-3" %></div>
@@ -32,9 +28,7 @@
     </div>
   <% end %>
 </div>
-
 <br>
-
 <div class="pag center">
   <%= will_paginate @contents, renderer: MaterializePagination::Rails %>
 </div>

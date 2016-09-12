@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Starthia</title>
+  <title>Starthia | Startups & Investors</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -12,12 +12,29 @@
 
 <%= render "layouts/header" %>
 
-	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<div class="container">
+  <% flash.each do |type, message| %>
+  <script class="popup">
+    Materialize.toast('<%= message %>', 4000, 'rounded');
+  </script>
+  <% end %>
+</div>
+
+<%= render 'pages/photo1' if action_name == 'home'%>
+
+<%= render 'pages/services' if action_name == 'home'%>
+
+<%= render 'pages/explanation' if action_name == 'home'%>
+
+<%= render 'pages/howitworks' if action_name == 'how_it_works'%>
+
+<%= render 'pages/contact' if action_name == 'home'%>
 
 <main class="container">
 	<%= yield %>
 </main>
+
+<!--<%= render 'pages/btop' if action_name == 'home'%>-->
 
 <%= render "layouts/footer" %>
 

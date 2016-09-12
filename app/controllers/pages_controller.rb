@@ -5,5 +5,11 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def donation
+  end
+
+  def how_it_works
+  end
   	 
 end

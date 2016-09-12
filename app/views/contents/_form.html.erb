@@ -9,14 +9,16 @@
         <%= f.input :equity, required: true, label: 'Equity percentage', class: "field" %>
         <%= f.input :website, label: 'Website Link', as: :string, class: "field" %>
         <%= f.input :linkedin, label: 'Linkedin Link', as: :string, class: "field" %>
-        
+        <!--<%= f.input :datepicker, as: :date, required: true, label: 'Date of Foundation' %>-->
+                
         <br>
         <label>Upload a cover image of your project (.jpeg, .jpg)</label>
         <div class="image-field">
             <%= f.input :copertina, required: true, label: false %>
         </div>
         <br>
-        <%= f.button :submit, class: "btn btn-devise waves-effect waves-light blue accent-3" %>
+        <%= f.button :submit, class: "btn btn-devise lrg-btn waves-effect waves-light blue accent-3" %>
+
       </div>
     <% end %>
 </div>

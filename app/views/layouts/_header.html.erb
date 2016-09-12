@@ -1,31 +1,40 @@
 <header class="navbar-fixed">
-	<nav class="white">
-	    <div class="container nav-wrapper">
-	      <%= link_to '$ T A R T H I A', root_path, class: "brand-logo blue-text text-accent-3" %>
-	      <a href="#" data-activates="mobile-demo" class="button-collapse blue-text text-accent-3"><i class="material-icons">menu</i></a>
-	      <ul class="right hide-on-med-and-down">
-	      	<li><%= link_to 'Add a project', new_content_path, class: "blue-text text-accent-3" %></li>
+	<nav class="navbar-color white">
+	    <div class="nav-wrapper">
+	      <%= link_to image_tag("starthialogo2.png", class: "brand-logo"), root_path;%>
+	      <ul class="menuleft left hide-on-med-and-down">
+	      	<li><%= link_to 'Investor', new_user_registration_path, class: "btn-flat white ghost-button" %></li>
+	      	<li><%= link_to 'How it Works', how_it_works_path, class: "head-left" %></li>
+	      </ul>
+	      <a href="#" data-activates="mobile-demo" class="right btnmenu button-collapse blue-text text-accent-3"><i class="material-icons">menu</i></a>
+	      <ul class="menuright right hide-on-med-and-down">
+	      	<li><%= link_to 'Post a Project', new_content_path, class: "smallp" %></li>
 	      	<% if user_signed_in? %>
-	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "blue-text text-accent-3"%>
+	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-devise waves-effect waves-light blue accent-3"%>
 	      		</li>
 	      	<% else %>
-		      	<li><%= link_to "Log In", new_user_session_path, class: "blue-text text-accent-3" %>
-		      	</li>
-		      	<li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-devise waves-effect waves-light blue accent-3" %>
-		      	</li>
-		    <% end %>  	
+	      		<li>
+	      			<%= link_to "Log In", new_user_session_path, class: "smallp" %>
+	      			<span class="grey-text text-lighten-1">or</span>
+	      			<li><%= link_to "Sign Up", new_user_registration_path, class: "btn btn-devise waves-effect waves-light blue accent-3" %>
+	      		</li>
+
+		    <% end %>
 	      </ul>
 	      <ul class="side-nav" id="mobile-demo">
-	      	<li><%= link_to 'Add a project', new_content_path, class: "blue-text text-accent-3" %></li>
+	      	<li><%= link_to 'Post a Project', new_content_path, class: "smallp" %></li>
+	      	<li><%= link_to 'Investor', how_it_works_path, class: "blue-text text-accent-3" %></li>
+	      	<li><%= link_to 'How it Works', how_it_works_path, class: "head-left" %></li>
 	        <% if user_signed_in? %>	
-	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "blue-text text-accent-3" %>
+	      		<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "smallp" %>
 	      		</li>
 	      	<% else %>
-		      	<li><%= link_to "Log In", new_user_session_path, class: "blue-text text-accent-3" %>
+		      	<li><%= link_to "Log In", new_user_session_path, class: "smallp" %>
 		      	</li>
 		      	<li><%= link_to "Sign Up", new_user_registration_path, class: "blue-text text-accent-3" %>
 		      	</li>
 		    <% end %> 
+		    
 	      </ul>
 	    </div>
 	</nav>

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about'
 
+  get 'how_it_works' => 'pages#how_it_works'
+
+  get 'donation' => 'pages#donation'
+
   post '/buy/:slug', to: 'transactions#create', as: :buy
 
   get '/pickup/:guid', to: 'transactions#pickup', as: :pickup

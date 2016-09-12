@@ -1,95 +1,84 @@
 <div class="row">
 	<p class="center-align title">
-		  <%= @content.title %>
+		<%= @content.title %>
 	</p>
-
 	<p class="center-align">
-		  by user
+		by <%= @content.user.name %>
 	</p>
-
 	<br>
-
 	<div class="sidebar col s12 m4 l3">
         <div class="panel">
           	<p class="info center-align">
 				Info:
 			</p>
-
 			<p class="left-align">
 			  Equity: <%= @content.equity %>%
 			</p>
-
 			<div class="divider"></div>
-
 			<p class="left-align">
 			  Team members: <%= @content.team %>
 			</p>
-
 			<div class="divider"></div>
-
+			<p class="left-align">
+			  Date: <%= @content.datepicker %>
+			</p>
+			<div class="divider"></div>
 			<p class="left-align">
 			  Website: <br><%= @content.website %>
 			</p>
-
 			<div class="divider"></div>
-
 			<p class="left-align">
 			  Linkedin: <br><%= @content.linkedin %>
 			</p>
-
 			<div class="divider"></div>
         </div>
 	</div>
-
 	<div class="col s12 m8 l9">
-			<div class="center-align">
-				<%= image_tag @content.copertina.url(:large)%>
-			</div>
-
-			<p class="center-align">
-			  <strong>Description:</strong>
-			  <%= @content.description %>
-			</p>
-
-			<p class="center-align">
-			  <strong>Price:</strong>
-			  <%= number_to_currency(@content.price) %>
-			</p>
-
-			<p>
-				<% if current_user %>
-					<%= form_tag buy_path(slug: @content.slug) do %>
-						<script
-						    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-						    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-						    data-amount="<%= (@content.price * 100).floor %>"
-						    data-name="Starthia"
-						    data-description="<%= @content.title %>"
-						    data-email="<%= current_user.email %>"
-						    data-image="/img/dollar-symbol.png"
-						    data-locale="auto"
-						    data-zip-code="true"
-						    data-currency="usd">
-						</script>
-					<% end %>
-				<% else %>
-					<p>You have to be <%= link_to "Logged In", new_user_session_path, class: "blue-text text-accent-3" %> to buy.</p>
+		<div class="center-align">
+			<%= image_tag @content.copertina.url(:large)%>
+		</div>
+		<p class="center-align">
+		  <strong>Description:</strong>
+		  <%= @content.description %>
+		</p>
+		<p class="center-align">
+		  <strong>Price:</strong>
+		  <%= number_to_currency(@content.price, :unit => "£") %>
+		</p>
+		<p>
+			<% if current_user %>
+				<%= form_tag buy_path(slug: @content.slug) do %>
+					<script
+					    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-amount="<%= (@content.price * 100).floor %>"
+					    data-name="Starthia"
+					    data-description="<%= @content.title %>"
+					    data-email="<%= current_user.email %>"
+					    data-image="/img/dollar-symbol.png"
+					    data-locale="auto"
+					    data-zip-code="true"
+					    data-currency="gbp">
+					</script>
 				<% end %>
-			</p>
-			
-			<div class="center">
-		        <div class="textholder white-text">
-		          	<p class="center-align">
-			  			<strong>Contact email: <%= @content.contact %></strong>
-					</p>
-		        </div>
-		    </div>
-
-			<br>
-
-			<% if @content.user == current_user %>
-				<%= link_to 'Edit your content', edit_content_path(@content) %> |
+			<% else %>
+				<p>You have to be <%= link_to "Logged In", new_user_session_path, class: "blue-text text-accent-3" %> to buy.</p>
 			<% end %>
+		</p>
+		<div class="center">
+	        <div class="textholder white-text">
+	          	<p class="center-align">
+		  			<strong>Contact: <%= @content.user.email %></strong>
+				</p>
+	        </div>
+	    </div>
+	    <br>
+		<br>
+		<% if @content.user == current_user %>
+			<%= link_to 'Edit your content', edit_content_path(@content) %> |
+		<% end %>
+		<div class="end-show">
 			<%= link_to 'Back to contents', contents_path %>
+		</div>
 	</div>
 </div>

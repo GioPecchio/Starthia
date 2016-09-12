@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813110756) do
+ActiveRecord::Schema.define(version: 20160901220725) do
 
   create_table "buyers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160813110756) do
     t.integer  "category_id"
     t.string   "contact"
     t.string   "slug"
+    t.datetime "datepicker"
   end
 
   add_index "contents", ["slug"], name: "index_contents_on_slug", unique: true

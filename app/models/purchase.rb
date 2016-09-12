@@ -29,7 +29,7 @@ class Purchase < ActiveRecord::Base
 			save!
 			charge = Stripe::Charge.create(
 				amount: self.amount,
-				currency: "usd",
+				currency: "gbp",
 				card: self.stripe_token,
 				description: "Content publishing"
 				)

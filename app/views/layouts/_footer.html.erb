@@ -1,18 +1,5 @@
-<footer class="page-footer white">
-  <div class="footer-copyright">
-    <div class="container">
-      <div class="row">
-        <div class="col s4 blue-text text-accent-3">
-          © 2016 $TARTHIA
-        </div>
-        <div class="col s4 blue-text text-accent-3 center">
-          Social
-        </div>  
-        <div class="col s4">
-          <%= link_to 'About', about_path, class: "blue-text text-accent-3 right" %>
-        </div>
-        <div>Icons made by <a href="http://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-      </div>
-    </div>
+<footer class="">
+  <div class="blue-text text-accent-3">
+    <p class="center"><span class="left cprt">&copy; 2016 - <%= Date.today.year %> Starthia</span><span class="right abt"><a href="" target="_blank"><i class="fa fa-social fa-facebook-official" aria-hidden="true"></i></a><a href="" target="_blank"><i class="fa fa-social fa-twitter-square" aria-hidden="true"></i></a><%= link_to '	/	Donate', donation_path, class: "" %></span></p>
   </div>
 </footer>
